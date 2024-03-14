@@ -1,17 +1,23 @@
 #!/usr/bin/env node
-import { program, Option } from 'commander';
+const { program } = require('commander');
+var fs = require('fs');
 function gendiff() {
 
     program
-        .usage('[options] <filepath1> <filepath2>')
+        .name('gendiff')
         .description('Compares two configuration files and shows a difference.')
-        .option('-V, --version', 'output the version number')
+        .version('0.0.1')
+        .arguments('<filepath1> <filepath2>')
         .option('-f, --format [type]', 'output format')
-        .addHelpOption(new Option('-h, --help,', 'output usage information'));
-
+        .helpOption('-h, --help,', 'output usage information')
+        .action((first, second) => {
+            fs.readFile(first, { encoding: 'utf8'}, (__error, stat) => {
+                console.log(JSON.parse(stat).host)
+            });
+          });
     program.parse();
 
-    console.log(program.parse())
+
 }
 
 gendiff();
