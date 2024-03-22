@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 import { program } from 'commander';
-import { diff, toString } from './getDiff.js';
+import { diff, toString, wrapper } from './getDiff.js';
 import { getFile, getObject, getPath } from './parser.js';
+import { fs } from 'file-system';
 
 function gendiff() {
   program
@@ -13,13 +14,15 @@ function gendiff() {
     .helpOption('-h, --help,', 'output usage information')
     .action((first, second) => {
       const firstFile = getObject(
-        getFile(getPath(first), { encoding: 'utf8' }),
+        getFile(getPath(first)),
       );
       const secondFile = getObject(
-        getFile(getPath(second), { encoding: 'utf8' }),
+        getFile(getPath(second)),
       );
 
-      toString(diff(firstFile, secondFile));
+      // toString(diff(firstFile, secondFile));
+      const data = wrapper(diff(firstFile, secondFile));
+      fs.writeFileSync('__fixtures__/results/YAMLResult.yaml',JSON.stringify(data, ' ', 2));
     });
   program.parse();
 }
