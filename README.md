@@ -61,7 +61,7 @@ gendiff file1.json file2.json
 # Установка
 
 ```
-git clone git@github.com:nick-shaydayuk/frontend-project-46.git
+git clone git@github.com:reden1k/frontend-project-46.git
 cd frontend-project-46
 make install
 ```
