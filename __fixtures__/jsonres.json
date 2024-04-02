@@ -3,8 +3,7 @@
   "child": [
     {
       "type": "nested",
-      "key": "common",
-      "children": [
+      "common": [
         {
           "type": "unchanged",
           "key": "setting1",
@@ -22,12 +21,10 @@
         },
         {
           "type": "nested",
-          "key": "setting6",
-          "children": [
+          "setting6": [
             {
               "type": "nested",
-              "key": "doge",
-              "children": [
+              "doge": [
                 {
                   "type": "unchanged",
                   "key": "wow",
@@ -47,8 +44,7 @@
     },
     {
       "type": "nested",
-      "key": "group1",
-      "children": [
+      "group1": [
         {
           "type": "unchanged",
           "key": "baz",
@@ -61,8 +57,7 @@
         },
         {
           "type": "nested",
-          "key": "nest",
-          "children": [
+          "nest": [
             {
               "type": "unchanged",
               "key": "key",
@@ -74,8 +69,7 @@
     },
     {
       "type": "nested",
-      "key": "group2",
-      "children": [
+      "group2": [
         {
           "type": "unchanged",
           "key": "abc",
@@ -83,8 +77,7 @@
         },
         {
           "type": "nested",
-          "key": "deep",
-          "children": [
+          "deep": [
             {
               "type": "unchanged",
               "key": "id",
